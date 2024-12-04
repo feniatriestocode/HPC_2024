@@ -1,5 +1,5 @@
 # Compiler and flags
-CC = icx
+CC = gcc
 CFLAGS = -O3 -Wall -std=c99
 LDFLAGS = -g
 
