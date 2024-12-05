@@ -1,0 +1,43 @@
+
+*** These modified files were found in JOE when it aborted on Thu Dec  5 23:38:29 2024
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+/srv/homes/gpapadouli/HPC_2024/.git/COMMIT_EDITMSG
+
+*** File '/srv/homes/gpapadouli/HPC_2024/.git/COMMIT_EDITMSG'
+timing for CPU
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: - <gpapadouli@inf-mars1>
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   Makefile
+#	deleted:    contrast-enhancement.c
+#	deleted:    contrast-enhancement.o
+#	deleted:    histogram-equalization.c
+#	deleted:    histogram-equalization.o
+#	deleted:    main
+#	deleted:    main.c
+#	modified:   main.o
+#
+# Untracked files:
+#	../.vscode/
+#	contrast_enhancement.cu
+#	contrast_enhancement.o
+#	hist_eq
+#	histogram_equalization.cu
+#	histogram_equalization.o
+#	main.cu
+#	../Images/Results/
+#
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc

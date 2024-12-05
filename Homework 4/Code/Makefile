@@ -1,37 +1,21 @@
 # Compiler and flags
-CC = gcc
-CFLAGS = -O3 -Wall -std=c99
-LDFLAGS = -g
-
-# CUDA setup for later transition (optional for now)
 NVCC = nvcc
-CUDAFLAGS = -O3 -arch=sm_70 # Change architecture as per your GPU
+CFLAGS = -O2
 
-# Source and object files
-SRC = contrast-enhancement.c histogram-equalization.c main.c
-OBJ = $(SRC:.c=.o)
+# Source files and output executable
+SRC = contrast_enhancement.cu histogram_equalization.cu main.cu
+OUT = hist_eq
 
-# Output binary
-TARGET = main
+# Default target
+all: $(OUT)
 
-# Default rule
-all: $(TARGET)
-
-# Compile and link
-$(TARGET): $(OBJ)
-	$(CC) $(LDFLAGS) -o $@ $^
-
-# Object files
-%.o: %.c hist-equ.h
-	$(CC) $(CFLAGS) -c $< -o $@
+# Compile the source files and create the executable
+$(OUT): $(SRC)
+	$(NVCC) $(CFLAGS) $(SRC) -o $(OUT)
 
 # Clean up build files
 clean:
-	rm -f $(OBJ) $(TARGET)
-
-# Optional rule for CUDA compilation later
-cuda:
-	$(NVCC) $(CUDAFLAGS) -o $(TARGET) $(SRC)
+	rm -f $(OUT)
 
 # Phony targets
-.PHONY: all clean cuda
+.PHONY: all clean

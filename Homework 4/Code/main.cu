@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+// #include <cuda_runtime.h>
+#include <time.h>
 #include "hist-equ.h"
-
 void run_cpu_gray_test(PGM_IMG img_in, char *out_filename);
 
 int main(int argc, char *argv[]){
     PGM_IMG img_ibuf_g;
-
+    
 	if (argc != 3) {
 		printf("Run with input file name and output file name as arguments\n");
 		exit(1);
@@ -25,12 +26,18 @@ int main(int argc, char *argv[]){
 
 void run_cpu_gray_test(PGM_IMG img_in, char *out_filename)
 {
-    unsigned int timer = 0;
+    //use of gettime() for measurements on CPU
+    struct timespec start, stop;
+    double time_elapsed;
     PGM_IMG img_obuf;
     
-    
     printf("Starting CPU processing...\n");
+    clock_gettime(CLOCK_MONOTONIC, &start);
     img_obuf = contrast_enhancement_g(img_in);
+    clock_gettime(CLOCK_MONOTONIC, &stop);
+    time_elapsed = (stop.tv_sec - start.tv_sec) * 1000.0; 
+    time_elapsed += (stop.tv_nsec - start.tv_nsec) / 1000000.0; 
+    printf("CPU contrast enhancement Execution Time: %.3f milliseconds\n", time_elapsed);
     write_pgm(img_obuf, out_filename);
     free_pgm(img_obuf);
 }
