@@ -1,12 +1,12 @@
 Image,Average CPU Time (ms),Standard Deviation (ms)
-../Images/fort.pgm,6.01053,1.45714
-../Images/gradient_1.pgm,0.97813,0.17326
-../Images/gradient_2.pgm,0.00247,0.0005
-../Images/gtuy.pgm,0.74367,0.17161
-../Images/planet_surface.pgm,70.28687,0.74153
-../Images/rand_highcontrast.pgm,0.00293,0.00057
-../Images/rand_lowcontrast.pgm,0.99893,0.2348
-../Images/ship.pgm,19.2988,1.0308
-../Images/text.pgm,0.00273,0.00068
-../Images/x_ray.pgm,7.4878,1.04122
-../Images/uth.pgm,5.8598,1.22788
+../Images/fort.pgm,6.21127,1.6392
+../Images/planet_surface.pgm,70.26447,1.73844
+../Images/ship.pgm,19.74093,1.12977
+../Images/text.pgm,0.0028,0.00083
+../Images/x_ray.pgm,7.8988,0.8761
+../Images/uth.pgm,6.24367,1.24252
+../Images/gradient_1.pgm,0.00287,0.00096
+../Images/gradient_2.pgm,0.0028,0.00091
+../Images/galaxy_lowres.pgm,0.1698,0.04894
+../Images/galaxy.pgm,0.63307,0.13501
+../Images/galaxy_HD.pgm,6.59,0.99725

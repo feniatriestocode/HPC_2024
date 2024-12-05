@@ -4,27 +4,41 @@ import numpy as np
 
 # List of input images to process
 input_images = [
-    '../Images/fort.pgm',  # Add your images here
-    '../Images/gradient_1.pgm',
-    '../Images/gradient_2.pgm',
-    '../Images/gtuy.pgm',
+    '../Images/fort.pgm', 
     '../Images/planet_surface.pgm',
-    '../Images/rand_highcontrast.pgm',
-    '../Images/rand_lowcontrast.pgm',
     '../Images/ship.pgm',
     '../Images/text.pgm',
     '../Images/x_ray.pgm',
-    '../Images/uth.pgm'
+    '../Images/uth.pgm',
+    '../Images/gradient_1.pgm',
+    '../Images/gradient_2.pgm',
+    '../Images/galaxy_lowres.pgm',
+    '../Images/galaxy.pgm',
+    '../Images/galaxy_HD.pgm'
+]
+
+output_images = [
+    '../Images/Results/res_fort.pgm',  
+    '../Images/Results/res_planet_surface.pgm',
+    '../Images/Results/res_ship.pgm',
+    '../Images/Results/res_text.pgm',
+    '../Images/Results/res_x_ray.pgm',
+    '../Images/Results/res_uth.pgm',
+    '../Images/Results/res_gradient_1.pgm',
+    '../Images/Results/res_gradient_2.pgm',
+    '../Images/Results/res_galaxy_lowres.pgm',
+    '../Images/Results/res_galaxy.pgm',
+    '../Images/Results/res_galaxy_HD.pgm'
 ]
 
 # Number of times to run each image
 iterations = 15
 
 # Function to run the command and capture the execution time printed by the C program
-def run_contrast_enhancement(image_path):
+def run_contrast_enhancement(image_path, output_path):
     # Run the C program and capture its output
     result = subprocess.Popen(
-        ['./hist_eq', image_path, '../Images/Results/res.pgm'],
+        ['./hist_eq', image_path, output_path],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
@@ -47,13 +61,13 @@ def process_images(input_images, iterations):
     results = []
 
     # Iterate over all input images
-    for image in input_images:
+    for image, output in zip(input_images, output_images):
         times = []
         
         # Run the contrast enhancement program for each image multiple times
         for _ in range(iterations):
             try:
-                exec_time = run_contrast_enhancement(image)
+                exec_time = run_contrast_enhancement(image, output)
                 times.append(exec_time)
             except ValueError as e:
                 print(e)
